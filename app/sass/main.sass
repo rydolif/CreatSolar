@@ -1,5 +1,8 @@
 @import base
 
+.no-scroll
+	overflow: auto
+
 // -----CONTAINER-----
 .container
 	width: 100%
@@ -25,6 +28,8 @@
 // -----BUTTON-----
 .btn
 	position: relative
+	top: 0
+	left: 0
 	display: flex
 	justify-content: center
 	align-items: center
@@ -39,8 +44,18 @@
 	border: 1px solid $accent
 	padding: 0 40px
 
+	+r(992)
+		min-height: 40px
+
 	&:hover,
 	&:focus
+		border: 1px solid $accent
+		background: $accent
+		color: #fff
+
+	&:active
+		top: 3px
+		left: 2px
 		border: 1px solid $accent
 		background: $accent
 		color: #fff
@@ -74,7 +89,7 @@
 		top: 0
 		width: 35px
 		height: 3px
-		background-color: #fff
+		background-color: $text
 		border-radius: 4px
 		transition: all .2s
 		bottom: 0
@@ -85,7 +100,7 @@
 			position: absolute
 			right: 0
 			top: -10px
-			background-color: #fff
+			background-color: $text
 			width: 35px
 			height: 3px
 			transition: transform 0s 0.1s
@@ -96,11 +111,10 @@
 			position: absolute
 			right: 0
 			top: -20px
-			background-color: #fff
+			background-color: $text
 			width: 35px
 			height: 3px
 			transition: transform 0s 0.1s
-
 
 	&--active
 		z-index: 1001
@@ -113,6 +127,23 @@
 			&::after
 				transform: translate3d(0, 10px, 0) rotate(-45deg)
 
+	+r(992)
+		display: block
+
+
+.subtitle
+	font-weight: 500
+	font-size: 36px
+
+	+r(1200)
+		font-size: 30px
+
+	+r(992)
+		font-size: 24px
+
+	b
+		font-weight: 900
+
 
 .header
 	position: fixed
@@ -120,7 +151,9 @@
 	right: 0
 	left: 0
 	padding: 15px
-	box-shadow: 0 0 15px 0 rgba(#000, .4)
+	box-shadow: 0 0 15px 0 rgba(#000, .2)
+	z-index: 1000
+	background-color: $white
 
 	&__container
 		display: flex
@@ -129,6 +162,10 @@
 	&__logo
 		width: 190px
 		flex-shrink: 0
+		margin-right: 30px
+
+		+r(1200)
+			margin-right: 20px
 
 		img
 			width: 100%
@@ -139,17 +176,51 @@
 		width: 85%
 		font-size: 15px
 
+		+r(1200)
+			font-size: 14px
+
+		+r(992)
+			position: fixed
+			top: 70px
+			left: 0
+			background-color: $white
+			width: 100%
+			height: 100%
+			display: flex
+			justify-content: center
+			align-items: center
+			padding: 40px 40px 80px
+			text-align: center
+			box-shadow: 0 0 15px 0 rgba(#000, .2) inset
+			overflow: auto
+			display: none
+
 		ul
 			display: flex
+
+			+r(992)
+				flex-direction: column
+				width: 100%
 
 		li
 			margin-right: 40px
 
+			+r(1200)
+				margin-right: 20px
+
+			+r(992)
+				margin-right: 0
+				margin-bottom: 10px
+
 		a
+			display: block
 			position: relative
 			color: $text
 			padding-top: 10px
 			padding-bottom: 15px
+			
+			+r(1200)
+				font-size: 18px
 
 			&::before
 				content: ''
@@ -173,8 +244,19 @@
 				&::before
 					transform: translate(0, -50%) scale(1.4)
 
+
+		&--active
+			display: block
+
 	&__info
+		display: flex
 		font-size: 18px
+
+		+r(1200)
+			font-size: 16px
+
+		+r(992)
+			flex-direction: column
 
 		a
 			color: $accent
@@ -182,12 +264,27 @@
 	&__mail
 		margin-right: 40px
 
+		+r(1200)
+			margin-right: 20px
+
+		+r(992)
+			margin-right: 0
+
 	&__tel
 		font-weight: 900
 
 
 .main
 	margin-top: 70px
+	margin: 0 auto
+	max-width: 95%
+	width: 100%
+
+	+r(1200)
+		max-width: 98%
+
+	+r(576)
+		max-width: 100%
 
 
 .hero
@@ -197,12 +294,39 @@
 	+cover
 	background-image: url(../img/hero__bg.jpg)
 
+
+	+r(1440)
+		padding-top: 100px
+		padding-bottom: 200px
+
+	+r(576)
+		padding-top: 80px
+		padding-bottom: 150px
+
+	br
+		+r(767)
+			display: none
+
 	&__title
 		font-size: 54px
 		font-weight: 500
 		text-transform: uppercase
 		text-align: center
 		margin-bottom: 30px
+
+		+r(1440)
+			margin-bottom: 20px
+			font-size: 50px
+
+		+r(1200)
+			font-size: 40px
+			margin-bottom: 15px
+
+		+r(576)
+			font-size: 32px
+
+		+r(576)
+			font-size: 26px
 
 		b
 			color: $accent
@@ -212,6 +336,14 @@
 		font-size: 24px
 		text-align: center
 		margin-bottom: 50px
+
+		+r(1440)
+			margin-bottom: 30px
+			font-size: 20px
+
+		+r(1200)
+			font-size: 16px
+			margin-bottom: 15px
 	
 	&__btn
 		margin: 0 auto
@@ -226,6 +358,10 @@
 		background-color: $white
 		border-radius: 50%
 		cursor: pointer
+
+		+r(1440)
+			width: 100px
+			height: 100px
 
 		&:hover
 			img
@@ -248,8 +384,113 @@
 			+transition
 
 
+.business
+	padding-top: 110px
+	padding-bottom: 85px
+
+	+r(1200)
+		padding-top: 80px
+		padding-bottom: 40px
+
+	br
+		+r(992)
+			display: none
+
+	&__wrap
+		background-color: $bg
+
+	&__container
+		+between
+
+	&__slider
+		position: relative
+		overflow: hidden
+		width: 57%
+
+		+r(767)
+			width: 100%
+
+		img
+			width: 100%
+
+		&_button
+			position: absolute
+			bottom: 0
+			right: 0
+			display: flex
+			z-index: 100
+
+		&_prev
+			transform: rotate(-180deg)
+
+		&_prev,
+		&_next
+			position: relative
+			width: 50px
+			height: 50px
+			background-color: $white
+
+			&::before,
+			&::after
+				content: ''
+				position: absolute
+				top: 50%
+				left: 50%
+				+transition
+
+			&::before
+				transform: translate(-38%, -50%)
+				border-bottom: 6px solid transparent
+				border-left: 11px solid $text
+				border-right: 11px solid transparent
+				border-top: 6px solid transparent
+
+			&::after
+				transform: translate(-42%, -50%)
+				border-bottom: 4px solid transparent
+				border-left: 9px solid #fff
+				border-right: 9px solid transparent
+				border-top: 4px solid transparent
+
+			&:hover
+				&::after
+					opacity: 0
+
+	&__description
+		width: 38%
+		padding: 15px 0
+
+		+r(767)
+			width: 100%
+
+		p
+			margin-bottom: 65px
+
+			+r(1440)
+				margin-bottom: 40px
+
+			+r(1200)
+				margin-bottom: 30px
+
+			+r(992)
+				margin-bottom: 15px 
+
+	&__subtitle
+		margin-bottom: 60px
+
+		+r(1440)
+			margin-bottom: 40px
+
+		+r(1200)
+			margin-bottom: 20px
+		
+		+r(767)
+			margin-bottom: 15px
+
 
 .footer
+	height: 300px
+
 	&__container
 		+between
 

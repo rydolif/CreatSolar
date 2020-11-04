@@ -7,6 +7,7 @@ $fonts: 'HelveticaNeueCyr', sans-serif
 $accent: #e94e1b
 $text: #222429
 $white: #ffffff
+$bg: #eceff3
 
 //---------------------end-color---------------------
 
@@ -15,7 +16,7 @@ body
 	position: relative
 	min-width: 320px
 	font-family: $fonts
-	font-size: 14px
+	font-size: 16px
 	color: $text
 	line-height: 1.4
 	font-weight: 400
@@ -23,6 +24,9 @@ body
 	display: flex
 	flex-direction: column
 	justify-content: space-between
+
+	+r(1440)
+		font-size: 14px
 
 ::selection
 	background-color: $accent
@@ -43,7 +47,7 @@ ul
 	list-style-type: none
 
 b, strong
-	font-weight: 700
+	font-weight: 900
 
 p
 	margin: 0

@@ -3,29 +3,29 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 	//----------------------SLIDER-hero----------------------
-		// var mySwiper = new Swiper('.hero__slider', {
-		// 	slidesPerView: 1,
-		// 	spaceBetween: 30,
-		// 	loop: true,
-		// 	effect: 'fade',
-		// 	autoplay: {
-		// 		delay: 5000,
-		// 	},
-		// 	pagination: {
-		// 		el: '.hero__pagination',
-		// 		clickable: 'true',
-		// 		},
-		// 	navigation: {
-		// 		nextEl: '.hero__next',
-		// 		prevEl: '.hero__prev',
-		// 	},
-		// 	breakpoints: {
-		// 		320: {
-		// 			slidesPerView: 2,
-		// 			spaceBetween: 20
-		// 		},
-		// 	}
-		// });
+		var mySwiper = new Swiper('.business__slider', {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			navigation: {
+				nextEl: '.business__slider_next',
+				prevEl: '.business__slider_prev',
+			},
+			// loop: true,
+			// effect: 'fade',
+			// autoplay: {
+			// 	delay: 5000,
+			// },
+			// pagination: {
+			// 	el: '.hero__pagination',
+			// 	clickable: 'true',
+			// 	},
+			// breakpoints: {
+			// 	320: {
+			// 		slidesPerView: 2,
+			// 		spaceBetween: 20
+			// 	},
+			// }
+		});
 
 	//----------------------SCROLL-----------------------
 		const scrollTo = (scrollTo) => {
@@ -82,22 +82,25 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 	
 		};
-		// headerFixed('.header', '.header--active');
+		headerFixed('.header', '.header--active');
 	
 	//----------------------HAMBURGER-----------------------
 		const hamburger = (hamburgerButton, hamburgerNav, hamburgerHeader) => {
 			const button = document.querySelector(hamburgerButton),
 						nav = document.querySelector(hamburgerNav),
 						header = document.querySelector(hamburgerHeader);
+
+			const body = document.querySelector('body');
 	
 			button.addEventListener('click', (e) => {
 				button.classList.toggle('hamburger--active');
 				nav.classList.toggle('header__nav--active');
 				header.classList.toggle('header--menu');
+				body.classList.toggle('no-scroll');
 			});
 	
 		};
-		// hamburger('.hamburger', '.header__nav', '.header');
+		hamburger('.hamburger', '.header__nav', '.header');
 		
 	//----------------------MODAL-----------------------
 		const modals = (modalSelector) => {
@@ -111,13 +114,15 @@ document.addEventListener("DOMContentLoaded", function() {
 					const link = document.querySelector('.' + wrap);
 					let close = item.querySelector('.close');
 
-					link.addEventListener('click', (e) => {
-						if (e.target) {
-							e.preventDefault();
-						}
-						item.style.display = 'flex';
-						document.body.classList.add('modal--open')
-					});
+					if (link) {
+						link.addEventListener('click', (e) => {
+							if (e.target) {
+								e.preventDefault();
+							}
+							item.style.display = 'flex';
+							document.body.classList.add('modal--open')
+						});
+					}
 
 					close.addEventListener('click', () => {
 						item.style.display = 'none';
@@ -137,143 +142,143 @@ document.addEventListener("DOMContentLoaded", function() {
 		modals('.modal');
 
 	//----------------------FORM-----------------------
-		const forms = (formsSelector) => {
-			const form = document.querySelectorAll(formsSelector);
-			let i = 1;
-			let img = 1;
-			let lebel = 1;
-			let prev = 1;
+		// const forms = (formsSelector) => {
+		// 	const form = document.querySelectorAll(formsSelector);
+		// 	let i = 1;
+		// 	let img = 1;
+		// 	let lebel = 1;
+		// 	let prev = 1;
 
-			form.forEach(item => {
-				const elem = 'form--' + i++;
-				item.classList.add(elem);
+		// 	form.forEach(item => {
+		// 		const elem = 'form--' + i++;
+		// 		item.classList.add(elem);
 
-				let formId = item.id = (elem);
-				let formParent = document.querySelector('#' + formId);
+		// 		let formId = item.id = (elem);
+		// 		let formParent = document.querySelector('#' + formId);
 
-				item.addEventListener('submit', formSend);
+		// 		item.addEventListener('submit', formSend);
 					
-				async function formSend(e) {
-					e.preventDefault();
+		// 		async function formSend(e) {
+		// 			e.preventDefault();
 			
-					let error = formValidate(item);
+		// 			let error = formValidate(item);
 			
-					let formData = new FormData(item);
-					formData.append('image', formImage.files[0]);
+		// 			let formData = new FormData(item);
+		// 			formData.append('image', formImage.files[0]);
 
-					console.log(formData);
+		// 			console.log(formData);
 			
-					if (error === 0) {
-						item.classList.add('_sending');
-						let response = await fetch('sendmail.php', {
-							method: 'POST',
-							body: formData
-						});
+		// 			if (error === 0) {
+		// 				item.classList.add('_sending');
+		// 				let response = await fetch('sendmail.php', {
+		// 					method: 'POST',
+		// 					body: formData
+		// 				});
 			
-						if (response.ok) {
-							let result = await response.json();
-							alert(result.message);
-							formPreview.innerHTML = '';
-							item.reset();
-							item.classList.remove('_sending');
-						} else {
-							alert('Ошибка при отправке');
-							item.classList.remove('_sending');
-						}
+		// 				if (response.ok) {
+		// 					let result = await response.json();
+		// 					alert(result.message);
+		// 					formPreview.innerHTML = '';
+		// 					item.reset();
+		// 					item.classList.remove('_sending');
+		// 				} else {
+		// 					alert('Ошибка при отправке');
+		// 					item.classList.remove('_sending');
+		// 				}
 			
-					} else {
-						alert('Заполниет поле картинка'); // доделать
-					}
-				}
+		// 			} else {
+		// 				alert('Заполниет поле картинка'); // доделать
+		// 			}
+		// 		}
 			
-				function formValidate(item) {
-					let error = 0;
-					let formReq = document.querySelectorAll('._req');
+		// 		function formValidate(item) {
+		// 			let error = 0;
+		// 			let formReq = document.querySelectorAll('._req');
 			
-					// console.log(formReq);
+		// 			// console.log(formReq);
 			
-					for (let index = 0; index < formReq.length; index++) {
-						const input = formReq[index];
-						formRemoveError(input);
+		// 			for (let index = 0; index < formReq.length; index++) {
+		// 				const input = formReq[index];
+		// 				formRemoveError(input);
 			
-						if (input.classList.contains('_email')) {
-							if(emailTest(input)) {
-								formAddError(input);
-								error++;
-							}
-						} else if (input.getAttribute('type') === 'checkbox' && input.checked === false) {
-							formAddError(input);
-							error++;
-						} else {
-							if (input.value === '') {
-								formAddError(input);
-								error++;
-							}
-						}
-					}
-					return error;
-				}
+		// 				if (input.classList.contains('_email')) {
+		// 					if(emailTest(input)) {
+		// 						formAddError(input);
+		// 						error++;
+		// 					}
+		// 				} else if (input.getAttribute('type') === 'checkbox' && input.checked === false) {
+		// 					formAddError(input);
+		// 					error++;
+		// 				} else {
+		// 					if (input.value === '') {
+		// 						formAddError(input);
+		// 						error++;
+		// 					}
+		// 				}
+		// 			}
+		// 			return error;
+		// 		}
 			
-				//картинка в форме
-				const formImage = formParent.querySelector('.formImage');
-				const formLebel = formParent.querySelector('.formLebel');
-				const formPreview = formParent.querySelector('.formPreview');
+		// 		//картинка в форме
+		// 		const formImage = formParent.querySelector('.formImage');
+		// 		const formLebel = formParent.querySelector('.formLebel');
+		// 		const formPreview = formParent.querySelector('.formPreview');
 				
-				let formImageNumber = 'formImage--' + img++;
-				let formPreviewNumber = 'formPreview--' + prev++;
+		// 		let formImageNumber = 'formImage--' + img++;
+		// 		let formPreviewNumber = 'formPreview--' + prev++;
 				
-				formImage.id = (formImageNumber);
-				formLebel.htmlFor = ('formImage--' + lebel++);
-				formPreview.id = (formPreviewNumber);
+		// 		formImage.id = (formImageNumber);
+		// 		formLebel.htmlFor = ('formImage--' + lebel++);
+		// 		formPreview.id = (formPreviewNumber);
 
-				// изменения в инпуте файл
-				formImage.addEventListener('change', () =>  {
-					uploadFile(formImage.files[0]);
-				});
+		// 		// изменения в инпуте файл
+		// 		formImage.addEventListener('change', () =>  {
+		// 			uploadFile(formImage.files[0]);
+		// 		});
 			
-				function uploadFile(file) {
+		// 		function uploadFile(file) {
 			
-					if (!['image/jpeg', 'image/png', 'image/gif', 'image/ico'].includes(file.type)) {
-						alert('Только изображения');
-						formImage.value = '';
-						return;
-					}
+		// 			if (!['image/jpeg', 'image/png', 'image/gif', 'image/ico'].includes(file.type)) {
+		// 				alert('Только изображения');
+		// 				formImage.value = '';
+		// 				return;
+		// 			}
 			
-					if (file.size > 2 * 1024 * 1024) {
-						alert('Размер менее 2 мб.');
-						return;
-					}
+		// 			if (file.size > 2 * 1024 * 1024) {
+		// 				alert('Размер менее 2 мб.');
+		// 				return;
+		// 			}
 			
-					var reader = new FileReader();
-					reader.onload = function (e) {
-						formPreview.innerHTML = `<img src="${e.target.result}" alt="Фото">`;
-					};
-					reader.onerror = function (e) {
-						alert('Ошибка');
-					};
-					reader.readAsDataURL(file);
-				}
+		// 			var reader = new FileReader();
+		// 			reader.onload = function (e) {
+		// 				formPreview.innerHTML = `<img src="${e.target.result}" alt="Фото">`;
+		// 			};
+		// 			reader.onerror = function (e) {
+		// 				alert('Ошибка');
+		// 			};
+		// 			reader.readAsDataURL(file);
+		// 		}
 			
-				function formAddError(input) {
-					input.parentElement.classList.add('_error');
-					input.classList.add('_error');
-				}
+		// 		function formAddError(input) {
+		// 			input.parentElement.classList.add('_error');
+		// 			input.classList.add('_error');
+		// 		}
 			
-				function formRemoveError(input) {
-					input.parentElement.classList.remove('_error');
-					input.classList.remove('_error');
-				}
+		// 		function formRemoveError(input) {
+		// 			input.parentElement.classList.remove('_error');
+		// 			input.classList.remove('_error');
+		// 		}
 			
-				function emailTest(input) {
-					return !/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/. test(input.value);
-				}
+		// 		function emailTest(input) {
+		// 			return !/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/. test(input.value);
+		// 		}
 			
-				// function phoneTest(input) {
-				// 	return !/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/. test(input.value);
-				// }
-			});
-		};
-		forms('.form');
+		// 		// function phoneTest(input) {
+		// 		// 	return !/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/. test(input.value);
+		// 		// }
+		// 	});
+		// };
+		// forms('.form');
 	
 	});
 	
