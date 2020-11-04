@@ -4,11 +4,11 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Start Optimazed</title>
-	<meta name="description" content="Startup HTML Optimized">
+	<title>Инвеститруй в будущее с Solergy</title>
+	<meta name="description" content="Солнечные электростанции от лучших производителей в мире, сделает ваши счета за электричество меньше">
 	<meta name="viewport" content="width=device-width">
-	<link rel="icon" href="images/favicon.png">
-	<meta property="og:image" content="images/dest/preview.jpg">
+	<link rel="icon" href="img/favicon.png">
+	<meta property="og:image" content="img/preview.jpg">
 	<link rel="stylesheet" href="css/app.min.css?v=1">
 	<script src="js/app.min.js" defer></script>
 
@@ -17,16 +17,23 @@
 <body>
 
 	<header class="header">
-		<div class="header__container container">
+		<div class="header__container">
 
 			<a href="/" class="header__logo">
-				
+				<img src="img/logo.png" alt="">
 			</a>
 
 			<nav class="header__nav">
 				<ul>
-					<li><a href="#about">О компании</a></li>
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Все о солнце</a></li>
+					<li><a href="#">Блог</a></li>
+					<li><a href="#">Контакты</a></li>
 				</ul>
+				<div class="header__info">
+					<a href="meilto:info@solergy.ru" class="header__mail">info@solergy.ru</a>
+					<a href="tel:+74959229355" class="header__tel">+7 (495) 922-93-55</a>
+				</div>
 			</nav>
 
 			<button class="hamburger" type="button">
@@ -38,17 +45,31 @@
 		</div>
 	</header>
 
-	<section class="section">
-		<div class="container">
+	<main class="main">
 
-			<a href="#" class="modal--edits">Добавить</a>
-			<a href="#" class="modal--add">Редактировать</a>
-			<a href="#" class="modal--next">Следующий</a>
-			<a href="#" class="modal--thanks">Благодарность</a>
+		<section class="hero">
+			<div class="container">
+	
+				<h1 class="hero__title">Инвеститруй в будущее с <b>Solergy</b></h1>
 
+				<p class="hero__text">
+					Солнечные электростанции от лучших производителей в мире, 
+					<br>
+					<b>сделает ваши счета за электричество меньше</b>
+				</p>
 
-		</div>
-	</section>
+				<a href="#" class="hero__btn btn">подробнее</a>
+
+				<div class="hero__down">
+					<a href="#">
+						<img src="img/hero__down.png" alt="">
+					</a>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
 
 	<footer class="footer">
 		<div class="footer__container container"></div>

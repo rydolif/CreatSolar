@@ -3,9 +3,12 @@
 // -----CONTAINER-----
 .container
 	width: 100%
-	max-width: 1200px
+	max-width: 1440px
 	padding: 0 15px
 	margin: 0 auto
+
+	+r(1440)
+		max-width: 1200px
 
 	+r(1200)
 		max-width: 992px
@@ -25,12 +28,16 @@
 	display: flex
 	justify-content: center
 	align-items: center
-	height: 45px
-	font-size: 18px
+	min-height: 50px
+	font-size: 14px
+	text-transform: uppercase
+	letter-spacing: 1px
 	color: $accent
 	font-weight: 700
-	border-radius: 20px
+	border-radius: 30px
 	max-width: fit-content
+	border: 1px solid $accent
+	padding: 0 40px
 
 	&:hover,
 	&:focus
@@ -108,24 +115,138 @@
 
 
 .header
-	// position: fixed
-	// top: 0
-	// right: 0
-	// left: 0
+	position: fixed
+	top: 0
+	right: 0
+	left: 0
+	padding: 15px
+	box-shadow: 0 0 15px 0 rgba(#000, .4)
 
 	&__container
-		+between
+		display: flex
+		justify-content: space-between
 
 	&__logo
-		width: 100px
+		width: 190px
+		flex-shrink: 0
 
 		img
 			width: 100%
 			height: auto
 
+	&__nav
+		+between
+		width: 85%
+		font-size: 15px
 
-.section
-	padding: 40px 0
+		ul
+			display: flex
+
+		li
+			margin-right: 40px
+
+		a
+			position: relative
+			color: $text
+			padding-top: 10px
+			padding-bottom: 15px
+
+			&::before
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 50%
+				transform: translate(0, -50%)
+				display: block
+				width: 6px
+				height: 6px
+				background-color: $accent
+				border-radius: 50%
+				opacity: 0
+				+transition
+			
+			&:hover
+				&::before
+					opacity: 1
+
+			&:active
+				&::before
+					transform: translate(0, -50%) scale(1.4)
+
+	&__info
+		font-size: 18px
+
+		a
+			color: $accent
+
+	&__mail
+		margin-right: 40px
+
+	&__tel
+		font-weight: 900
+
+
+.main
+	margin-top: 70px
+
+
+.hero
+	position: relative
+	padding-top: 145px
+	padding-bottom: 380px
+	+cover
+	background-image: url(../img/hero__bg.jpg)
+
+	&__title
+		font-size: 54px
+		font-weight: 500
+		text-transform: uppercase
+		text-align: center
+		margin-bottom: 30px
+
+		b
+			color: $accent
+			font-weight: 900
+	
+	&__text
+		font-size: 24px
+		text-align: center
+		margin-bottom: 50px
+	
+	&__btn
+		margin: 0 auto
+
+	&__down
+		position: absolute
+		right: 10%
+		bottom: 0
+		transform: translate(0, 50%)
+		width: 138px
+		height: 138px
+		background-color: $white
+		border-radius: 50%
+		cursor: pointer
+
+		&:hover
+			img
+				top: 40%
+			
+		&:active
+			img
+				top: 55%
+
+		a
+			display: block
+			width: 100%
+			height: 100%
+		
+		img
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			+transition
+
 
 
 .footer
@@ -220,6 +341,7 @@
 
 	&__line
 		margin-bottom: 20px
+
 
 .form
 	position: relative
@@ -425,4 +547,6 @@
 				top: 3px
 				box-shadow: 0 0 5px 0 rgba($dark, .2)
 
-	
+
+
+

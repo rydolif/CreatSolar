@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				});
 			});
 		};
-		// scrollTo('.header__nav');
+		scrollTo('.hero__down');
 	
 	//----------------------FIXED-HEADER-----------------------
 		const headerFixed = (headerFixed, headerActive) => {
