@@ -70,6 +70,8 @@ input, textarea, select
 	outline: none
 	box-shadow: none
 	border: 1px solid #000
+	height: 60px
+	line-height: 60px
 	// -webkit-appearance: none
 	
 	&:focus:required:invalid
@@ -85,7 +87,16 @@ input, textarea, select
 		-webkit-appearance: none
 
 	&::placeholder
-		color: $text
+		color: #a0a2a8
+		height: 60px
+		line-height: 60px
+
+textarea
+	line-height: 1.2
+
+	&::placeholder
+		line-height: 1.2
+
 
 
 label.error
