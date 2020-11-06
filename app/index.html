@@ -196,7 +196,7 @@
 					<p>
 						Проконсультируем <br>и рассчитаем <br>индивидуальную цену
 					</p>
-					<a href="#" class="btn btn--white">Заказать консультацию</a>
+					<a href="#" class="modal--consultation btn btn--white">Заказать консультацию</a>
 				</div>
 
 				<div class="services__info">
@@ -243,7 +243,7 @@
 			</div>
 		</section>
 
-		<section class="news">
+		<section class="news"> 
 			<div class="container">
 
 				<h2 class="news__subtitle subtitle"><b>Новости</b> компании</h2>
@@ -424,6 +424,37 @@
 	</footer>
 
 	<div class="modal" id="modal--edits">
+		<form action="#" class="modal__form form" method="POST">
+	
+			<button class="close modal__close" type="button">
+				<span></span>
+				<span></span>
+			</button>
+	
+			<h3 class="form__title">Оставить заявку</h3>
+
+			<input type="hidden" name="subject" value="Оставить заявку">
+
+			<div class="modal__item form__item">
+				<input id="formName" type="text" name="name" placeholder="Имя" class="form__input _req">
+			</div>
+
+			<div class="modal__item form__item">
+				<input id="formPhone" type="tel" name="phone" placeholder="Телефон" class="form__input _req" maxlength="13">
+			</div>
+
+			<div class="modal__item form__item">
+				<input id="formMail" type="email" name="mail" placeholder="Почта" class="form__input _req">
+			</div>
+
+			<div class="modal__btn form__btn">
+				<button type="submit" class="btn form__btn_button" name="submit">Отправить</button>
+			</div>
+
+		</form>
+	</div>
+
+	<div class="modal" id="modal--consultation">
 		<form action="#" class="modal__form form" method="POST">
 	
 			<button class="close modal__close" type="button">
