@@ -1145,6 +1145,9 @@
 		height: 350px
 		background-image: url(../img/about__hero.jpg)
 
+		+r(992)
+			height: 250px
+
 		img
 			width: 27px
 			height: 27px
@@ -1222,6 +1225,15 @@
 
 			+r(1200)
 				padding-left: 20px
+
+		img
+			display: block
+			max-width: 50%
+			margin: 0 auto 20px
+
+			+r(992)
+				max-width: 320px
+
 
 	&__modul
 		display: flex
