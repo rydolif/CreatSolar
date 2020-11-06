@@ -142,6 +142,5 @@ document.addEventListener("DOMContentLoaded", function() {
 		};
 		modals('.modal');
 
-	
 	});
 	
