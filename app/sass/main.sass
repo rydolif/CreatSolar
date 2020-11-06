@@ -975,6 +975,34 @@
 				color: $accent
 				text-decoration: underline
 
+	&__pagination
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-wrap: wrap
+		padding-top: 25px
+
+		a, span
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 32px
+			height: 32px
+			background-color: $white
+			border-radius: 50%
+			margin: 0 5px
+			color: $text
+			+transition
+
+		span
+			color: $white
+			background-color: $accent
+		
+		a
+			&:hover
+				color: $accent
+				box-shadow: 0 0 3px 0 $accent
+
 
 .question
 	padding-top: 100px
