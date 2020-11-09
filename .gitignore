@@ -1,6 +1,7 @@
 /node_modules/
 /.git/
-/**/Thumbs.db
+/.bowerrc/
+/index.php/
+/_backstage
+/Thumbs.db
 /**/*.DS_Store
-/**/package-lock.json
-/maket/
