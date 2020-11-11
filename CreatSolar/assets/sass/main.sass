@@ -34,6 +34,7 @@
 	justify-content: center
 	align-items: center
 	min-height: 50px
+	line-height: 50px
 	font-size: 14px
 	text-transform: uppercase
 	letter-spacing: 1px
@@ -41,12 +42,14 @@
 	font-weight: 700
 	border-radius: 30px
 	max-width: fit-content
+	min-width: 180px
 	border: 1px solid $accent
 	padding: 0 40px
 	text-align: center
 
 	+r(992)
 		min-height: 40px
+		line-height: 40px
 
 	&:hover,
 	&:focus
@@ -349,6 +352,7 @@
 			margin-bottom: 15px
 	
 	&__btn
+		max-width: 200px
 		margin: 0 auto
 
 	&__down
