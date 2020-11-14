@@ -153,7 +153,7 @@
 				<p>
 					Проконсультируем <br>и рассчитаем <br>индивидуальную цену
 				</p>
-				<a href="#" class="modal--consultation btn btn--white">Заказать консультацию</a>
+				<a href="#" class="modal--consultation2 btn btn--white">Заказать консультацию</a>
 			</div>
 
 			<div class="services__info">

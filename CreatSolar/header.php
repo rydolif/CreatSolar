@@ -31,7 +31,7 @@
 					) );
 				?>
 				<div class="header__info">
-					<a href="meilto:info@solergy.ru" class="header__mail"><b>info@solergy.ru</b></a>
+					<a href="mailto:info@solergy.ru" class="header__mail"><b>info@solergy.ru</b></a>
 					<a href="tel:+74959229355" class="header__tel">+7 (495) 922-93-55</a>
 				</div>
 			</nav>
